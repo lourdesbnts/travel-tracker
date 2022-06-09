@@ -1,17 +1,23 @@
 import { expect } from 'chai';
 import { Traveler } from '../src/classes/travelers.js';
 import { travelerSampleData } from '../src/data/traveler-sample-data';
-import { tripsSampleData } from '../src/data/test/trips-sample-data';
-
+import { Trips } from '../src/classes/trips.js';
+import { tripsSampleData } from '../src/data/trips-sample-data';
 // const expect = chai.expect;
 
-
+// test/trips-sample-data.js
 
 describe('Traveler', () => {
     let traveler;
-    
+    let tripData;
+    let trip1, trip2, trip3;
+
     beforeEach(() => {
         traveler = new Traveler(travelerSampleData[0]);
+        tripData = tripsSampleData;
+        trip1 = new Trips(tripsSampleData[0])
+        trip2 = new Trips(tripsSampleData[1])
+        trip3 = new Trips(tripsSampleData[2])
     })
     
     it('should create a new instance of Traveler', () => {
