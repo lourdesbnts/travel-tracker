@@ -7,7 +7,6 @@ import { travelerSampleData } from '../src/data/traveler-sample-data';
 
 describe('Traveler', () => {
     let traveler;
-    let travelerData;
     
     beforeEach(() => {
         traveler = new Traveler(travelerSampleData[0]);
