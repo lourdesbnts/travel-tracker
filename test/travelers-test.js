@@ -13,13 +13,23 @@ describe('Traveler', () => {
         traveler = new Traveler(travelerSampleData[0]);
     })
     
-    it('should create a new instance of Ingredient', () => {
+    it('should create a new instance of Traveler', () => {
         expect(traveler).to.be.an.instanceof(Traveler);
     })
 
     it('should have an id', () => {
         expect(traveler.id).to.equal(7);
     })
+
+    it('should have a name', () => {
+        expect(traveler.name).to.equal('Emmet Sandham');
+    })
+
+    it('should have a traveler type', () => {
+        expect(traveler.travelerType).to.equal('relaxer');
+    })
+
+    it('should ')
 });
 
 
