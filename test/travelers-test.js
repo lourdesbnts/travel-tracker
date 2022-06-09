@@ -1,6 +1,8 @@
 import { expect } from 'chai';
 import { Traveler } from '../src/classes/travelers.js';
 import { travelerSampleData } from '../src/data/traveler-sample-data';
+import { tripsSampleData } from '../src/data/test/trips-sample-data';
+
 // const expect = chai.expect;
 
 
