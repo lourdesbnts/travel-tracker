@@ -1,7 +1,7 @@
 // import { Trip } from './Trip'
 
 import { Trip } from "./Trip";
-
+const dayjs = require('dayjs')
 // import { Destination } from './destinations.js'
 //might need to import destination sample data, not sure if to make a class for it or just import straight from dummy data
 

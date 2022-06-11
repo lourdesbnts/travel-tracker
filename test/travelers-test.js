@@ -31,18 +31,18 @@ describe('Traveler', () => {
     })
 
     it('should have an id', () => {
-        expect(traveler1.id).to.equal(7);
-        expect(traveler2.id).to.equal(8);
+        expect(traveler1.id).to.equal(1);
+        expect(traveler2.id).to.equal(2);
     })
 
     it('should have a name', () => {
-        expect(traveler1.name).to.equal('Emmet Sandham');
-        expect(traveler2.name).to.equal('Carlin O\'Reilly')
+        expect(traveler1.name).to.equal('Ham Leadbeater');
+        expect(traveler2.name).to.equal('Rachael Vaughten')
     })
 
     it('should have a traveler type', () => {
         expect(traveler1.travelerType).to.equal('relaxer');
-        expect(traveler2.travelerType).to.equal('history buff')
+        expect(traveler2.travelerType).to.equal('thrill-seeker')
     })
 
     it('should find every trip that belongs to traveler by id', () => {
@@ -65,10 +65,10 @@ describe('Traveler', () => {
         expect(traveler2.pastTrips).to.deep.equal([]);
     })
 
-    it.skip('should contain all past trips', () => {
-        traveler1.findAllTravelerPastTrips(tripsSampleData)
+    // it.skip('should contain all past trips', () => {
+    //     traveler1.findAllTravelerPastTrips(tripsSampleData)
         
-    })
+    // })
 
     it('should start with no upcoming trips', () => {
         expect(traveler1.upcomingTrips).to.deep.equal([]);
@@ -83,9 +83,9 @@ describe('Traveler', () => {
         expect(traveler2.pendingTrips).to.deep.equal([]);
     })
 
-    it.only('should contain all pending trips', () => {
-        traveler1.findAllPendingTrips(tripsSampleData)
-    })
+    // it('should contain all pending trips', () => {
+    //     traveler1.findAllPendingTrips(tripsSampleData)
+    // })
 });
 
 
