@@ -154,7 +154,7 @@ export const tripsSampleData = [
             userID: 5,
             destinationID: 5,
             travelers: 1,
-            date: "2020/04/29",
+            date: "2020/06/29",
             duration: 16,
             status: "approved",
             suggestedActivities: [ ]

@@ -1,9 +1,5 @@
-// import { Trip } from './Trip'
-
 import { Trip } from "./Trip";
 const dayjs = require('dayjs')
-// import { Destination } from './destinations.js'
-//might need to import destination sample data, not sure if to make a class for it or just import straight from dummy data
 
 export class Traveler {
     constructor(travelerData) {
@@ -36,7 +32,7 @@ export class Traveler {
                 const convertedDates = dayjs(travelerDate.date).format('YYYY-MM-DD');
                     if(convertedDates < today) {
                      this.pastTrips.push(travelerDate);
-          }
+            }
         })
     }
 
@@ -53,23 +49,26 @@ export class Traveler {
         const todaysDate = dayjs().format('YYYY-MM-DD');
         const travelersUpcomingTrips = tripData.filter(trip => trip.userID === this.id);
             travelersUpcomingTrips.forEach(travelerDate => {
-                const tripDate = dayjs(travelerDate.date).format('YYYY-MM-DD');
-                    if(tripDate > todaysDate) {
+                const upcomingDate = dayjs(travelerDate.date).format('YYYY-MM-DD');
+                    if(upcomingDate > todaysDate) {
                         this.upcomingTrips.push(travelerDate);
                     }
             })
     }
 
-    
+    findAllCurrentTrips(tripData) {
+        const todaysDate = dayjs().format('YYYY-MM-DD');
+        const travelersPresentTrips = tripData.filter(trip => trip.userID === this.id);
+            travelersPresentTrips.forEach(travelDate => {
+                const presentDate = dayjs(travelDate.date).format('YYYY-MM-DD');
+                    if(presentDate === todaysDate) {
+                        this.currentTrips.push(travelDate);
+                    }
+            })
+    }
+
+    findTotalAmountSpentInAYear() {
+
+    }
 }
-    
-    //need to find pending trips for user 
-    //also find all of the past trips 
-
-        // findAllPendingTrips(tripData) {
-    //     // let allPending = tripData.filter(trip => trip.status === 'pending')
-    //     console.log(person)
-    // }
-
-    // let converted = date.date.split('/').join('-');
-    // console.log(converted)
+   

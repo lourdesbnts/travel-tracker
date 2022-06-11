@@ -4,26 +4,16 @@ import { travelerSampleData } from '../src/data/traveler-sample-data';
 import { Trip } from '../src/classes/Trip.js';
 import { tripsSampleData } from '../src/data/trips-sample-data';
 import { destinationSampleData } from '../src/data/destination-sample-data.js'
-// const expect = chai.expect;
-
-// test/trips-sample-data.js
-// src/data/destination-sample-data.js
 
 describe('Traveler', () => {
     let traveler1;
     let traveler2;
-    let tripData;
-    let trip1, trip2, trip3;
     let destinationData;
     beforeEach(() => {
         traveler1 = new Traveler(travelerSampleData[4]);
         traveler2 = new Traveler(travelerSampleData[1]);
         tripData = tripsSampleData;
-        // trip1 = new Trip(tripsSampleData[0])
-        // trip2 = new Trip(tripsSampleData[1])
-        // trip3 = new Trip(tripsSampleData[2])
         destinationData = destinationSampleData;
-        // console.log(destinationData)
     })
     
     it('should create a new instance of Traveler', () => {
@@ -83,6 +73,16 @@ describe('Traveler', () => {
     it.skip('should contain all pending trips', () => {
         traveler1.findAllPendingTrips(tripsSampleData);
         console.log(traveler1.pendingTrips)
+    })
+
+    it.skip('should start with no current trips', () => {
+        expect(traveler1.currentTrips).to.deep.equal([]);
+        expect(traveler2.currentTrips).to.deep.equal([]);
+    })
+
+    it.only('should contain all current trips', () => {
+        traveler1.findAllCurrentTrips(tripsSampleData);
+        console.log(traveler1.currentTrips)
     })
 });
 
