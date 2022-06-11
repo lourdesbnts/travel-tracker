@@ -29,18 +29,38 @@ export class Traveler {
         })
     }
 
-    findAllTravelerPastTrips(tripData) {
-        const today = dayjs().format('YYYY-MM-DD')
-        // console.log('TODAYYYYYY', today)
-        const convertDates = tripData.filter(trip => trip.userID === this.id)
-            convertDates.forEach(date => {
-            const convertedDates = dayjs(date.date).format('YYYY-MM-DD');
-                if(convertedDates < today) {
-                this.pastTrips.push(date);
+    findAllPastTrips(tripData) {
+        const today = dayjs().format('YYYY-MM-DD');
+        const travelersPastTrips = tripData.filter(trip => trip.userID === this.id)
+            travelersPastTrips.forEach(travelerDate => {
+                const convertedDates = dayjs(travelerDate.date).format('YYYY-MM-DD');
+                    if(convertedDates < today) {
+                     this.pastTrips.push(travelerDate);
           }
-        //   console.log(convertedDates)
         })
     }
+
+    findAllPendingTrips(tripData) {
+        const travelersPendingTrips = tripData.filter(trip => trip.userID === this.id);
+            travelersPendingTrips.forEach((travelerStatus) => {
+            if(travelerStatus.status === 'pending') {
+                this.pendingTrips.push(travelerStatus);
+            }
+        })
+    }
+
+    findAllUpcomingTrips(tripData) {
+        const todaysDate = dayjs().format('YYYY-MM-DD');
+        const travelersUpcomingTrips = tripData.filter(trip => trip.userID === this.id);
+            travelersUpcomingTrips.forEach(travelerDate => {
+                const tripDate = dayjs(travelerDate.date).format('YYYY-MM-DD');
+                    if(tripDate > todaysDate) {
+                        this.upcomingTrips.push(travelerDate);
+                    }
+            })
+    }
+
+    
 }
     
     //need to find pending trips for user 

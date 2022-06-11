@@ -16,7 +16,7 @@ describe('Traveler', () => {
     let trip1, trip2, trip3;
     let destinationData;
     beforeEach(() => {
-        traveler1 = new Traveler(travelerSampleData[0]);
+        traveler1 = new Traveler(travelerSampleData[4]);
         traveler2 = new Traveler(travelerSampleData[1]);
         tripData = tripsSampleData;
         // trip1 = new Trip(tripsSampleData[0])
@@ -31,23 +31,18 @@ describe('Traveler', () => {
     })
 
     it('should have an id', () => {
-        expect(traveler1.id).to.equal(1);
+        expect(traveler1.id).to.equal(5);
         expect(traveler2.id).to.equal(2);
     })
 
     it('should have a name', () => {
-        expect(traveler1.name).to.equal('Ham Leadbeater');
+        expect(traveler1.name).to.equal('Tiffy Grout');
         expect(traveler2.name).to.equal('Rachael Vaughten')
     })
 
     it('should have a traveler type', () => {
-        expect(traveler1.travelerType).to.equal('relaxer');
+        expect(traveler1.travelerType).to.equal('thrill-seeker');
         expect(traveler2.travelerType).to.equal('thrill-seeker')
-    })
-
-    it('should find every trip that belongs to traveler by id', () => {
-        traveler1.findAllTravelerTrips(tripsSampleData, destinationSampleData)
-        console.log(traveler1.travelersTrips)
     })
 
     it('should start with no trips', () => {
@@ -55,18 +50,18 @@ describe('Traveler', () => {
         expect(traveler2.travelersTrips).to.deep.equal([]);
     })
 
-    // it('should contain every trip by user', () => {
-    //     // console.log(tripData)
-    //     expect(traveler1.findAllTravelerTrips(tripData, destinationData)).to.equal(7);
-    // })
+    it('should find every trip that belongs to traveler by id', () => {
+        traveler1.findAllTravelerTrips(tripsSampleData, destinationSampleData)
+        console.log(traveler1.travelersTrips)
+    })
 
     it('should start with no past trips', () => {
         expect(traveler1.pastTrips).to.deep.equal([]);
         expect(traveler2.pastTrips).to.deep.equal([]);
     })
 
-    it.only('should contain all past trips', () => {
-        traveler1.findAllTravelerPastTrips(tripsSampleData)
+    it('should contain all past trips', () => {
+        traveler1.findAllPastTrips(tripsSampleData)
         console.log('did u work???',traveler1.pastTrips)
     })
 
@@ -75,17 +70,20 @@ describe('Traveler', () => {
         expect(traveler2.upcomingTrips).to.deep.equal([]);
     })
 
-    // it('should contain all upcoming trips', () => {
-    // })
+    it('should contain all upcoming trips', () => {
+        traveler1.findAllUpcomingTrips(tripsSampleData);
+        console.log(traveler1.upcomingTrips)
+    })
 
     it('should start with no pending trips', () => {
         expect(traveler1.pendingTrips).to.deep.equal([]);
         expect(traveler2.pendingTrips).to.deep.equal([]);
     })
 
-    // it('should contain all pending trips', () => {
-    //     traveler1.findAllPendingTrips(tripsSampleData)
-    // })
+    it.skip('should contain all pending trips', () => {
+        traveler1.findAllPendingTrips(tripsSampleData);
+        console.log(traveler1.pendingTrips)
+    })
 });
 
 
