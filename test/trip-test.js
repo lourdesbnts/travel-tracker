@@ -15,43 +15,43 @@ describe('Trip', () => {
     })
 
     it('should have a trip ID', () => {
-        expect(trip.tripID).to.equal(7);
+        expect(trip.tripID).to.equal(117);
     })
 
     it('should have a destination name', () => {
-        expect(trip.destination.destination).to.equal('Jaipur, India');
+        expect(trip.destination.destination).to.equal('Anchorage, Alaska');
     })
 
     it('should hold the estimated lodging cost per day', () => {
-        expect(trip.destination.estimatedLodgingCostPerDay).to.equal(30);
+        expect(trip.destination.estimatedLodgingCostPerDay).to.equal(200);
     })
 
     it('should hold the estimated lodging cost per person', () => {
-        expect(trip.destination.estimatedFlightCostPerPerson).to.equal(1200);
+        expect(trip.destination.estimatedFlightCostPerPerson).to.equal(100);
     })
 
     it('should have an image', () => {
-        expect(trip.destination.image).to.equal('https://images.unsplash.com/photo-1534758607507-754e582adfa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+        expect(trip.destination.image).to.equal('https://images.unsplash.com/photo-1539545547102-90ae2c140089?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
     })
 
     it('should have an alt tag', () => {
-        expect(trip.destination.alt).to.equal('a courtyard with trees and mountain in the distance');
+        expect(trip.destination.alt).to.equal('man riding on kayak surrounded by mountains');
     })
 
     it('should have a destination ID', () => {
-        expect(trip.destinationID).to.equal(17);
+        expect(trip.destinationID).to.equal(28);
     })
 
     it('should have a number of travelers', () => {
-        expect(trip.travelers).to.equal(5);
+        expect(trip.travelers).to.equal(3);
     })
 
     it('should have a date', () => {
-        expect(trip.date).to.equal('2022/5/28');
+        expect(trip.date).to.equal('2021/01/09');
     })
 
     it('should have a duration', () => {
-        expect(trip.duration).to.equal(20);
+        expect(trip.duration).to.equal(15);
     })
 
     it('should have a status', () => {
@@ -63,7 +63,7 @@ describe('Trip', () => {
     })
 
     it('should calculate the trip cost', () => {
-        expect(trip.calculateTripCost()).to.equal(7260);
+        expect(trip.calculateTripCost()).to.equal(3630);
     })
 
 });
