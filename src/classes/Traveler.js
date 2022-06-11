@@ -29,19 +29,27 @@ export class Traveler {
         })
     }
 
-    findAllPendingTrips(tripData) {
-        // let allPending = tripData.filter(trip => trip.status === 'pending')
-        console.log(person)
+    findAllTravelerPastTrips(tripData) {
+        const today = dayjs().format('YYYY-MM-DD')
+        // console.log('TODAYYYYYY', today)
+        const convertDates = tripData.filter(trip => trip.userID === this.id)
+            convertDates.forEach(date => {
+            const convertedDates = dayjs(date.date).format('YYYY-MM-DD');
+                if(convertedDates < today) {
+                this.pastTrips.push(date);
+          }
+        //   console.log(convertedDates)
+        })
     }
-
-    // findAllTravelerPastTrips(tripData) {
-        // console.log(tripData)
-        // let pastTrips = tripData.map(trip => trip.date)
-        //     pastTrips.forEach(date => {
-        //         new Date(date).getTime()
-        //         console.log(pastTrips)
-        //     })
-    }
+}
     
     //need to find pending trips for user 
     //also find all of the past trips 
+
+        // findAllPendingTrips(tripData) {
+    //     // let allPending = tripData.filter(trip => trip.status === 'pending')
+    //     console.log(person)
+    // }
+
+    // let converted = date.date.split('/').join('-');
+    // console.log(converted)

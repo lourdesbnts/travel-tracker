@@ -65,10 +65,10 @@ describe('Traveler', () => {
         expect(traveler2.pastTrips).to.deep.equal([]);
     })
 
-    // it.skip('should contain all past trips', () => {
-    //     traveler1.findAllTravelerPastTrips(tripsSampleData)
-        
-    // })
+    it.only('should contain all past trips', () => {
+        traveler1.findAllTravelerPastTrips(tripsSampleData)
+        console.log('did u work???',traveler1.pastTrips)
+    })
 
     it('should start with no upcoming trips', () => {
         expect(traveler1.upcomingTrips).to.deep.equal([]);
