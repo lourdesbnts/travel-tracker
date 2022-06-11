@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Trip } from '../src/classes/trips.js';
+import { Trip } from '../src/classes/Trip.js';
 import { tripsSampleData } from '../src/data/trips-sample-data';
 import { destinationSampleData } from '../src/data/destination-sample-data';
 
@@ -7,35 +7,35 @@ describe('Trip', () => {
     let trip;
 
     beforeEach(() => {
-        trip = new Trip(tripsSampleData[0], destinationSampleData[0]);
+        trip = new Trip(tripsSampleData[0], destinationSampleData[10]);
     })
 
     it('should create a new instance of Trip', () => {
-        expect(trip).to.be.an.instanceof(Trip);
+        expect(trip).to.be.an.instanceOf(Trip);
     })
 
     it('should have a trip ID', () => {
-        expect(trip.id).to.equal(7);
+        expect(trip.tripID).to.equal(7);
     })
 
     it('should have a destination name', () => {
-        expect(trip.destination.destination).to.equal('Paris, France');
+        expect(trip.destination.destination).to.equal('Jaipur, India');
     })
 
     it('should hold the estimated lodging cost per day', () => {
-        expect(trip.destination.estimatedLodgingCostPerDay).to.equal(100);
+        expect(trip.destination.estimatedLodgingCostPerDay).to.equal(30);
     })
 
     it('should hold the estimated lodging cost per person', () => {
-        expect(trip.destination.estimatedFlightCostPerPerson).to.equal(395);
+        expect(trip.destination.estimatedFlightCostPerPerson).to.equal(1200);
     })
 
     it('should have an image', () => {
-        expect(trip.destination.image).to.equal('https://images.unsplash.com/photo-1524396309943-e03f5249f002?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80');
+        expect(trip.destination.image).to.equal('https://images.unsplash.com/photo-1534758607507-754e582adfa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
     })
 
     it('should have an alt tag', () => {
-        expect(trip.destination.alt).to.equal('city during the day time with eiffel tower');
+        expect(trip.destination.alt).to.equal('a courtyard with trees and mountain in the distance');
     })
 
     it('should have a destination ID', () => {
@@ -63,8 +63,16 @@ describe('Trip', () => {
     })
 
     it('should calculate the trip cost', () => {
-        expect(trip.calculateTripCost(trip, destination)).to.equal();
+        expect(trip.calculateTripCost()).to.equal(7260);
     })
 
 });
   
+
+// id: 17,
+// destination: "Jaipur, India",
+// estimatedLodgingCostPerDay: 30,
+// estimatedFlightCostPerPerson: 1200,
+// image: "https://images.unsplash.com/photo-1534758607507-754e582adfa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+// alt: "a courtyard with trees and mountain in the distance"
+// }
