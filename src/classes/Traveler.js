@@ -28,4 +28,20 @@ export class Traveler {
             })
         })
     }
-}
+
+    findAllPendingTrips(tripData) {
+        // let allPending = tripData.filter(trip => trip.status === 'pending')
+        console.log(person)
+    }
+
+    // findAllTravelerPastTrips(tripData) {
+        // console.log(tripData)
+        // let pastTrips = tripData.map(trip => trip.date)
+        //     pastTrips.forEach(date => {
+        //         new Date(date).getTime()
+        //         console.log(pastTrips)
+        //     })
+    }
+    
+    //need to find pending trips for user 
+    //also find all of the past trips 
