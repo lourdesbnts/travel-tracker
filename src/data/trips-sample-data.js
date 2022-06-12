@@ -164,7 +164,7 @@ export const tripsSampleData = [
             userID: 5,
             destinationID: 35,
             travelers: 2,
-            date: "2020/10/19",
+            date: "2022/10/19",
             duration: 20,
             status: "approved",
             suggestedActivities: [ ]
@@ -174,7 +174,7 @@ export const tripsSampleData = [
             userID: 5,
             destinationID: 48,
             travelers: 1,
-            date: "2020/04/28",
+            date: "2022/04/28",
             duration: 10,
             status: "approved",
             suggestedActivities: [ ]
@@ -184,7 +184,7 @@ export const tripsSampleData = [
             userID: 5,
             destinationID: 16,
             travelers: 1,
-            date: "2020/09/25",
+            date: "2022/09/25",
             duration: 8,
             status: "approved",
             suggestedActivities: [ ]

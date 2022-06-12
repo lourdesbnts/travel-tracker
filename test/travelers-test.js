@@ -8,6 +8,7 @@ import { destinationSampleData } from '../src/data/destination-sample-data.js'
 describe('Traveler', () => {
     let traveler1;
     let traveler2;
+    let tripData;
     let destinationData;
     beforeEach(() => {
         traveler1 = new Traveler(travelerSampleData[4]);
@@ -81,9 +82,25 @@ describe('Traveler', () => {
     })
 
     it.only('should contain all current trips', () => {
-        traveler1.findAllCurrentTrips(tripsSampleData);
-        console.log(traveler1.currentTrips)
+        traveler1.findAllTravelerTrips(tripsSampleData, destinationSampleData);
+        // console.log(traveler1.currentTrips)
+        // console.log(traveler1.findFirst())
+        console.log(traveler1.findTotalAmountSpentInAYear(tripsSampleData))
     })
+
+    // it.only('should contain all current trips', () => {
+    //     traveler1.findAllCurrentTrips(tripsSampleData);
+    //     // console.log(traveler1.currentTrips)
+    //     console.log(traveler1.findFirst())
+    // })
+
+
+
+    // it('should return the total amount spent on trips this year for the user', () => {
+
+    // })
+
+
 });
 
 

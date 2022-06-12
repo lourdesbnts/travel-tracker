@@ -9,8 +9,6 @@ export class Trip {
         this.status = tripData.status;
         this.suggestedActivities = [];
         this.destination = destinationData;
-        // console.log('>>>>>>>>>', this.destination)
-        // console.log('THIS>USERID', tripData)
     }
 
     calculateTripCost() {
@@ -19,12 +17,3 @@ export class Trip {
         return Math.round((costPerDay + costPerTraveler) * 1.1)
     }
 }
-
- 
-
-
-//this.destination.estimatedLodgingCostPerDay
-
-//trying to calculate each trip cost 
-//x costPerDaY with the duration
-//
