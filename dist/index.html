@@ -18,7 +18,7 @@
       <section class="traveler-section">
         <section class="traveler-form-section" id="travelerFormSection">
           <form class="traveler-form form" id="travelerForm">
-            <h2 class="travel-form-title">Make A New Trip Request</h2>
+            <h2 class="travel-form-title">Ready for your next trip?</h2>
             <div class="travel-form-flex">
               <div class="travel-form-container">
                 <p class="hidden" id="travelFormMessage"></p>
@@ -28,14 +28,14 @@
                 <p class="hidden" id="travelFormDestinationId"></p>
                 <div class="traveler-request-flex">
                   <label for="date">Date</label>
-                  <input class="traveler-input" type="date" name="date" id="requestedDate" min="2022-03-01" required></input>
+                  <input class="traveler-input" type="date" name="date" id="requestedDate" min="2022-06-01" required></input>
                 </div>
                 <div class="traveler-request-flex">
-                  <label for="travelDuration">Duration</label>
+                  <label for="travelDuration">How many days?</label>
                   <input class="traveler-input duration-input" type="number" name="travelDuration" id="requestedDuration" min="0" required></input>
                 </div>
                 <div class="traveler-request-flex">
-                  <label for="numTravelers">Travelers</label>
+                  <label for="numTravelers">How many guests?</label>
                   <input class="traveler-input num-traveler-input" type="number" name="numTravelers" id="requestedNumTravelers" min="0" max="10" required></input>
                 </div>
                 <div class="traveler-request-flex">
@@ -45,16 +45,16 @@
               </div>
             </div>
             <div class="travel-form-btn-container">
-              <button class="estimate-cost-btn" type="button" name="button" id="estimateBtn">Get Estimate</button>
+              <button class="estimate-cost-btn" type="button" name="button" id="estimateBtn">Trip Estimate</button>
               <p class="estimated-cost" id="estimatedCost"></p>
               <button class="submit-trip-btn" type="submit" id="submitTripRequest">Submit</button>
             </div>
           </form>
         </section>
         <div class="expense-container">
-          <h2 class="title-expense">Annual Expense Report</h2>
+          <h2 class="title-expense">How much you've spent this year</h2>
           <p class="total-expense" id="totalExpense">$</p>
-          <p class="footnote-expense">Annual expense includes travel agent's 10% fee</p>
+          <p class="footnote-expense">Annual expense does include travel agent's 10% fee</p>
         </div>
       </section>
       <section class="traveler-trips-section" id="travelerTripsSection">
