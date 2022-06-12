@@ -4,13 +4,73 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <title>Travel Tracker</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
+  <nav>
+    <p class="travel-tracker-logo">Travel Tracker</p>
+  </nav>
+  <main>
+    <section class="user-dashboard hidden" id="userDashboard">
+      <div class="welcome-container">
+        <h1 class="welcome-traveler" id="welcomeTraveler">Welcome</h1>
+      </div>
+      <section class="traveler-section">
+        <section class="traveler-form-section" id="travelerFormSection">
+          <form class="traveler-form form" id="travelerForm">
+            <h2 class="travel-form-title">Ready for your next trip?</h2>
+            <div class="travel-form-flex">
+              <div class="travel-form-container">
+                <p class="hidden" id="travelFormMessage"></p>
+                <p class="hidden" id="travelFormNewTrip"></p>
+                <p class="hidden" id="travelFormId"></p>
+                <p class="hidden" id="travelFormTravelerId"></p>
+                <p class="hidden" id="travelFormDestinationId"></p>
+                <div class="traveler-request-flex">
+                  <label for="date">Date</label>
+                  <input class="traveler-input" type="date" name="date" id="requestedDate" min="2022-06-01" required></input>
+                </div>
+                <div class="traveler-request-flex">
+                  <label for="travelDuration">How many days?</label>
+                  <input class="traveler-input duration-input" type="number" name="travelDuration" id="requestedDuration" min="0" required></input>
+                </div>
+                <div class="traveler-request-flex">
+                  <label for="numTravelers">How many guests?</label>
+                  <input class="traveler-input num-traveler-input" type="number" name="numTravelers" id="requestedNumTravelers" min="0" max="10" required></input>
+                </div>
+                <div class="traveler-request-flex">
+                  <label for="requestedDestination">Choose a Destination</label>
+                  <select class="traveler-input destination-list" id="destinationList" required></select>
+                </div>
+              </div>
+            </div>
+            <div class="travel-form-btn-container">
+              <button class="estimate-cost-btn" type="button" name="button" id="estimateBtn">Trip Estimate</button>
+              <p class="estimated-cost" id="estimatedCost"></p>
+              <button class="submit-trip-btn" type="submit" id="submitTripRequest">Submit</button>
+            </div>
+          </form>
+        </section>
+        <div class="expense-container">
+          <h2 class="title-expense">How much you've spent this year</h2>
+          <p class="total-expense" id="totalExpense">$</p>
+          <p class="footnote-expense">Annual expense does include travel agent's 10% fee</p>
+        </div>
+      </section>
+      <section class="traveler-trips-section" id="travelerTripsSection">
+        <div class="filter-buttons-container">
+          <button class="filter-button" type="button" name="button">All Trips</button>
+          <button class="filter-button" type="button" name="button">Past Trips</button>
+          <button class="filter-button" type="button" name="button">Present Trips</button>
+          <button class="filter-button" type="button" name="button">Upcoming Trips</button>
+          <button class="filter-button" type="button" name="button">Pending Trips</button>
+        </div>
+        <section class="trip-widget-section" id="tripWidgetSection">
+        </section>
+      </section>
+    </section>
+  </main>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
-
 </body>
 </html>
