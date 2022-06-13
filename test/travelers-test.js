@@ -11,8 +11,8 @@ describe('Traveler', () => {
     let tripData;
     let destinationData;
     beforeEach(() => {
-        traveler1 = new Traveler(travelerSampleData[4]);
-        traveler2 = new Traveler(travelerSampleData[1]);
+        traveler1 = new Traveler(4, 'Tiffy Grout', 'thrill-seeker');
+        traveler2 = new Traveler(1);
         tripData = tripsSampleData;
         destinationData = destinationSampleData;
     })
@@ -22,8 +22,8 @@ describe('Traveler', () => {
     })
 
     it('should have an id', () => {
-        expect(traveler1.id).to.equal(5);
-        expect(traveler2.id).to.equal(2);
+        expect(traveler1.id).to.equal(4);
+        expect(traveler2.id).to.equal(1);
     })
 
     it('should have a name', () => {
@@ -51,7 +51,7 @@ describe('Traveler', () => {
         expect(traveler2.pastTrips).to.deep.equal([]);
     })
 
-    it.only('should contain all past trips', () => {
+    it('should contain all past trips', () => {
         traveler1.findAllPastTrips(tripsSampleData)
         console.log('did u work???',traveler1.pastTrips)
     })
@@ -81,7 +81,7 @@ describe('Traveler', () => {
         expect(traveler2.currentTrips).to.deep.equal([]);
     })
 
-    it.only('should contain all current trips', () => {
+    it('should contain all current trips', () => {
         traveler1.findAllTravelerTrips(tripsSampleData, destinationSampleData);
         // console.log(traveler1.currentTrips)
         // console.log(traveler1.findFirst())
