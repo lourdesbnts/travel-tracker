@@ -14,6 +14,7 @@ const domUpdates = {
             return (
                 `<div class='trip-container'>
                 <img class='vacation-pictures' src=${trip.destination.image}/>
+                <p>Destination: ${trip.destination.destination} </p>
                 <p>Date: ${trip.date} </p>
                 <p>Number of Travelers: ${trip.travelers} </p>
                 <p>Duration: ${trip.duration}</p>
@@ -30,7 +31,7 @@ const domUpdates = {
 
     displaySpentThisYear: (spent) => {
         console.log('SPENT',spent)
-        spentThisYear.innerText = `${spent}`
+        spentThisYear.innerText = `$${spent}`
     }
 
 

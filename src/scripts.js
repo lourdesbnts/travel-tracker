@@ -10,7 +10,7 @@ import { Trip } from './classes/Trip.js';
 let traveler;
 let allTripsData;
 let allDestinationsData;
-let travelerID = 10;
+let travelerID = 9;
 
 
 
