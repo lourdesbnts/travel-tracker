@@ -9,3 +9,11 @@ body {
   background-color: pink;
 }
 
+.trip-container {
+  border: solid 1px black;
+}
+
+.vacation-pictures {
+  height: 300px;
+  width: 400px;
+}
