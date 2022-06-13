@@ -24,9 +24,9 @@ export class Traveler {
         })
     }
 
-    findAllPastTrips(tripData) {
+    findAllPastTrips() {
         const today = dayjs().format('YYYY-MM-DD');
-        const travelersPastTrips = tripData.filter(trip => trip.userID === this.id)
+        const travelersPastTrips = this.travelersTrips.filter(trip => trip.userID === this.id)
             travelersPastTrips.forEach(travelerDate => {
                 const convertedDates = dayjs(travelerDate.date).format('YYYY-MM-DD');
                     if(convertedDates < today) {
@@ -35,8 +35,8 @@ export class Traveler {
         })
     }
 
-    findAllPendingTrips(tripData) {
-        const travelersPendingTrips = tripData.filter(trip => trip.userID === this.id);
+    findAllPendingTrips() {
+        const travelersPendingTrips = this.travelersTrips.filter(trip => trip.userID === this.id);
             travelersPendingTrips.forEach((travelerStatus) => {
             if(travelerStatus.status === 'pending') {
                 this.pendingTrips.push(travelerStatus);
@@ -44,9 +44,9 @@ export class Traveler {
         })
     }
 
-    findAllUpcomingTrips(tripData) {
+    findAllUpcomingTrips() {
         const todaysDate = dayjs().format('YYYY-MM-DD');
-        const travelersUpcomingTrips = tripData.filter(trip => trip.userID === this.id);
+        const travelersUpcomingTrips = this.travelersTrips.filter(trip => trip.userID === this.id);
             travelersUpcomingTrips.forEach(travelerDate => {
                 const upcomingDate = dayjs(travelerDate.date).format('YYYY-MM-DD');
                     if(upcomingDate > todaysDate) {
@@ -55,9 +55,9 @@ export class Traveler {
             })
     }
 
-    findAllCurrentTrips(tripData) {
+    findAllCurrentTrips() {
         const todaysDate = dayjs().format('YYYY-MM-DD');
-        const travelersPresentTrips = tripData.filter(trip => trip.userID === this.id);
+        const travelersPresentTrips = this.travelersTrips.filter(trip => trip.userID === this.id);
             travelersPresentTrips.forEach(travelDate => {
                 const presentDate = dayjs(travelDate.date).format('YYYY-MM-DD');
                     if(presentDate === todaysDate) {
