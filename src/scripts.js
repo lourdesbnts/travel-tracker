@@ -10,7 +10,7 @@ import { Trip } from './classes/Trip.js';
 let traveler;
 let allTripsData;
 let allDestinationsData;
-let travelerID = 9;
+let travelerID = 28;
 
 
 
@@ -30,14 +30,16 @@ const allFetchCalls = () => {
         console.log(allTripsData)
         traveler.findAllTravelerTrips(allTripsData, allDestinationsData)
         traveler.findTotalAmountSpentInAYear()
+        traveler.findAllPastTrips(allTripsData)
+        traveler.findAllUpcomingTrips(allTripsData)
+        traveler.findAllCurrentTrips(allTripsData)
+        traveler.findAllPendingTrips(allTripsData)
         console.log(traveler.travelersTrips) //all past, present, future stuff will be from here 
-        // allTripsData = new Trip(data[1].trips[0], data[2])
-        // console.log('allTRIPSSS' ,allTripsData)
-        // console.log('destinations', allDestinationsData)
         domUpdates.welcomeUser(traveler.name);
-        domUpdates.displayAllTrips(traveler);
+        domUpdates.displayAllTrips(traveler.travelersTrips);
         domUpdates.displaySpentThisYear(traveler.findTotalAmountSpentInAYear());
         
+
     })
     // .catch(error => console.log(error))
 
@@ -47,4 +49,4 @@ const allFetchCalls = () => {
 
 window.addEventListener('load', allFetchCalls)
 
-// export { traveler }
+export { traveler }

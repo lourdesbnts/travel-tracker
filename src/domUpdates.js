@@ -1,16 +1,35 @@
-// import { traveler } from "./scripts";
+import { traveler } from "./scripts";
 const welcomeTraveler = document.getElementById('welcomeTraveler');
 const displayAllTrips = document.querySelector('.trips-container');
-const spentThisYear = document.querySelector('.total-expense');
+const spentThisYear = document.querySelector('.total-cost');
+const displayPastTrips = document.querySelector('.past-button');
+const displayUpcomingTrips = document.querySelector('.upcoming-button');
+const displayPresentTrips = document.querySelector('.present-button');
+const displayPendingTrips = document.querySelector('.pending-button');
 
+displayPastTrips.addEventListener('click', () => {
+    domUpdates.displayAllTrips(traveler.pastTrips)
+});
+
+displayUpcomingTrips.addEventListener('click', () => {
+    domUpdates.displayAllTrips(traveler.upcomingTrips)
+});
+
+displayPresentTrips.addEventListener('click', () => {
+    domUpdates.displayAllTrips(traveler.currentTrips);
+});
+
+displayPendingTrips.addEventListener('click', () => {
+    domUpdates.displayAllTrips(traveler.pendingTrips);
+});
 
 const domUpdates = {
     welcomeUser: (name) => {
         welcomeTraveler.innerText = `Welcome ${name}`
     },
 
-    displayAllTrips: (traveler) => {
-        const getTrips = traveler.travelersTrips.map(trip => {
+    displayAllTrips: (array) => {
+        const getTrips = array.map(trip => {
             return (
                 `<div class='trip-container'>
                 <img class='vacation-pictures' src=${trip.destination.image}/>
@@ -22,7 +41,6 @@ const domUpdates = {
                 <p>Lodging for Day: $${trip.destination.estimatedLodgingCostPerDay}</p>
                 <p>Flight Cost per Person: $${trip.destination.estimatedFlightCostPerPerson}</p>
                 </div>`
-                
                 )
             })
             displayAllTrips.innerHTML = `${getTrips.join('')}`
@@ -32,8 +50,7 @@ const domUpdates = {
     displaySpentThisYear: (spent) => {
         console.log('SPENT',spent)
         spentThisYear.innerText = `$${spent}`
-    }
-
+    },
 
 }
 
