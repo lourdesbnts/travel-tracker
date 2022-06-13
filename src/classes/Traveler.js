@@ -2,10 +2,10 @@ import { Trip } from "./Trip";
 const dayjs = require('dayjs')
 
 export class Traveler {
-    constructor(travelerData) {
-        this.id = travelerData.id;
-        this.name = travelerData.name;
-        this.travelerType = travelerData.travelerType;
+    constructor(id, name, travelerType) {
+        this.id = id;
+        this.name = name;
+        this.travelerType = travelerType;
         this.travelersTrips = [];
         this.pastTrips = [];
         this.currentTrips = [];
