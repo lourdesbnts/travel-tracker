@@ -12,3 +12,8 @@ body {
 .trip-container {
   border: solid 1px black;
 }
+
+.vacation-pictures {
+  height: 300px;
+  width: 400px;
+}
