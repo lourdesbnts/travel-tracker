@@ -73,7 +73,7 @@ export class Traveler {
         thisYearsTrips.forEach(trip => {
             totalCost += trip.calculateTripCost();
         })
-        console.log(totalCost)
+       return totalCost;
         // console.log(thisYearsTrips)
                
         // console.log(travelersTrips)
