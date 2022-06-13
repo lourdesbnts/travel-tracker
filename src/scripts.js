@@ -29,12 +29,14 @@ const allFetchCalls = () => {
         console.log(allDestinationsData)
         console.log(allTripsData)
         traveler.findAllTravelerTrips(allTripsData, allDestinationsData)
+        traveler.findTotalAmountSpentInAYear()
         console.log(traveler.travelersTrips) //all past, present, future stuff will be from here 
         // allTripsData = new Trip(data[1].trips[0], data[2])
-        console.log('allTRIPSSS' ,allTripsData)
-        console.log('destinations', allDestinationsData)
+        // console.log('allTRIPSSS' ,allTripsData)
+        // console.log('destinations', allDestinationsData)
         domUpdates.welcomeUser(traveler.name);
-        domUpdates.displayAllTrips(traveler)
+        domUpdates.displayAllTrips(traveler);
+        domUpdates.displaySpentThisYear(traveler.findTotalAmountSpentInAYear());
         
     })
     // .catch(error => console.log(error))
