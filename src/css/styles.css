@@ -9,3 +9,6 @@ body {
   background-color: pink;
 }
 
+.trip-container {
+  border: solid 1px black;
+}
