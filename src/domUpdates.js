@@ -1,7 +1,7 @@
 // import { traveler } from "./scripts";
 const welcomeTraveler = document.getElementById('welcomeTraveler');
 const displayAllTrips = document.querySelector('.trips-container');
-
+const spentThisYear = document.querySelector('.total-expense');
 
 
 const domUpdates = {
@@ -10,29 +10,30 @@ const domUpdates = {
     },
 
     displayAllTrips: (traveler) => {
-        // console.log(allTripsData)
         const getTrips = traveler.travelersTrips.map(trip => {
             return (
                 `<div class='trip-container'>
+                <img class='vacation-pictures' src=${trip.destination.image}/>
                 <p>Date: ${trip.date} </p>
-                <p>Duration: ${trip.duration}</p>
                 <p>Number of Travelers: ${trip.travelers} </p>
+                <p>Duration: ${trip.duration}</p>
                 <p>Status: ${trip.status} </p>
+                <p>Lodging for Day: $${trip.destination.estimatedLodgingCostPerDay}</p>
+                <p>Flight Cost per Person: $${trip.destination.estimatedFlightCostPerPerson}</p>
                 </div>`
                 
-            )
-        })
-        // const tripDate = allTripsData.date;
-        // const tripDestination = allTripsData[0].destinationID;
-        // const tripDuration = allTripsData.duration;
-        // const tripId = allTripsData.id;
-        // const tripStatus = allTripsData.status;
-        // const tripSuggestedActivities = allTripsData.suggestedActivities;
-        // const tripTraveler = allTripsData.travelers;
-        // const tripUserId = allTripsData.userID;
-           console.log(getTrips)
-        displayAllTrips.innerHTML = `${getTrips.join('')}`
+                )
+            })
+            displayAllTrips.innerHTML = `${getTrips.join('')}`
+        //    console.log(getTrips)
+    },
+
+    displaySpentThisYear: (spent) => {
+        console.log('SPENT',spent)
+        spentThisYear.innerText = `${spent}`
     }
+
+
 }
 
 export default domUpdates;
