@@ -1,4 +1,4 @@
-import './scripts.js';
+// import './scripts.js';
 
 export const fetchCalls = (url) => {
     return fetch(url)
