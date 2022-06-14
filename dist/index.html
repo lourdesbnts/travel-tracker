@@ -8,24 +8,24 @@
 </head>
 <body>
   <nav>
-    <p class="travel-tracker-title">Travel Tracker</p>
+    <p tabindex="0" class="travel-tracker-title">Travel Tracker</p>
   </nav>
   <main>
     <section class="user-dashboard hidden" id="userDashboard">
       <div class="welcome-container">
-        <h1 class="welcome-traveler" id="welcomeTraveler">Welcome</h1>
+        <h1 tabindex="0" class="welcome-traveler" id="welcomeTraveler">Welcome</h1>
       </div>
       <section class="traveler-section">
         <section class="traveler-form-section" id="travelerFormSection">
           <form class="traveler-form form" id="travelerForm">
-            <h2 class="travel-form-title">Ready for your next trip?</h2>
+            <h2 tabindex="0" class="travel-form-title">Ready for your next trip?</h2>
             <div class="travel-form">
               <div class="travel-form-container">
-                <p class="hidden" id="travelFormMessage"></p>
-                <p class="hidden" id="travelFormNewTrip"></p>
-                <p class="hidden" id="travelFormId"></p>
-                <p class="hidden" id="travelFormTravelerId"></p>
-                <p class="hidden" id="travelFormDestinationId"></p>
+                <p tabindex="0" class="hidden" id="travelFormMessage"></p>
+                <p tabindex="0" class="hidden" id="travelFormNewTrip"></p>
+                <p tabindex="0" class="hidden" id="travelFormId"></p>
+                <p tabindex="0" class="hidden" id="travelFormTravelerId"></p>
+                <p tabindex="0" class="hidden" id="travelFormDestinationId"></p>
                 <div class="traveler-request">
                   <label for="requestedDate">Date</label>
                   <input class="traveler-input" type="date" name="date" id="requestedDate" min="2022-06-01" required></input>
@@ -74,7 +74,6 @@
       </section>
     </section>
   </main>
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 </body>
 </html>
