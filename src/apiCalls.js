@@ -6,11 +6,11 @@ export const fetchCalls = (url) => {
 }
 
 
-export const postTrip = () => {
+export const postTrip = (usersNewTrip) => {
     return fetch('http://localhost:3001/api/v1/trips', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify()
+        body: JSON.stringify(usersNewTrip)
     })
     .then((response) => {
         if (!response.ok) {

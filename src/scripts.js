@@ -5,6 +5,7 @@ import './classes/Traveler.js';
 import './classes/Trip.js';
 import { Traveler } from './classes/Traveler.js';
 import { Trip } from './classes/Trip.js';
+const dayjs = require('dayjs');
 
 //----------Global Variables----------//
 let traveler;
@@ -43,9 +44,24 @@ const allFetchCalls = () => {
     })
 }
 
+const requestNewTrip = () => {
+    const usersNewTrip = {
+        id: Number,
+        userID: traveler.id,
+        destinationID: parseInt(domUpdates.findInputDestination(allDestinationsData).id),
+        travelers: parseInt(numberOfTravelers.value), 
+        date: dayjs(dateSelected.value).format('YYYY/MM/DD'),
+        duration: parseInt(numberOfDays.value),
+        status: 'pending',
+        suggestedActivities: []
+    }
+    postTrip(usersNewTrip)
+}
 
 
 
 window.addEventListener('load', allFetchCalls)
 
-export { traveler }
+export { traveler, requestNewTrip }
+
+// {id: <number>, userID: <number>, destinationID: <number>, travelers: <number>, date: <string 'YYYY/MM/DD'>, duration: <number>, status: <string 'approved' or 'pending'>, suggestedActivities: <array of strings>}

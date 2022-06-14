@@ -1,4 +1,5 @@
 import { traveler } from "./scripts";
+import { requestNewTrip } from "./scripts";
 const welcomeTraveler = document.getElementById('welcomeTraveler');
 const displayAllTrips = document.querySelector('.trips-container');
 const spentThisYear = document.querySelector('.total-cost');
@@ -9,29 +10,33 @@ const displayPendingTrips = document.querySelector('.pending-button');
 const tripEstimateButton = document.querySelector('.estimate-cost-btn');
 const submitTripButton = document.querySelector('.submit-trip-btn');
 const destinationList = document.querySelector('.destination-list');
+const numberOfTravelers = document.getElementById('requestedNumTravelers');
+const numberOfDays = document.getElementById('requestedDuration');
+const dateSelected = document.getElementById('requestedDate');
 
 
 
+// displayPastTrips.addEventListener('click', () => {
+//     domUpdates.displayAllTrips(traveler.pastTrips)
+// });
 
-displayPastTrips.addEventListener('click', () => {
-    domUpdates.displayAllTrips(traveler.pastTrips)
-});
+// displayUpcomingTrips.addEventListener('click', () => {
+//     domUpdates.displayAllTrips(traveler.upcomingTrips)
+// });
 
-displayUpcomingTrips.addEventListener('click', () => {
-    domUpdates.displayAllTrips(traveler.upcomingTrips)
-});
+// displayPresentTrips.addEventListener('click', () => {
+//     domUpdates.displayAllTrips(traveler.currentTrips);
+// });
 
-displayPresentTrips.addEventListener('click', () => {
-    domUpdates.displayAllTrips(traveler.currentTrips);
-});
+// displayPendingTrips.addEventListener('click', () => {
+//     domUpdates.displayAllTrips(traveler.pendingTrips);
+// });
 
-displayPendingTrips.addEventListener('click', () => {
-    domUpdates.displayAllTrips(traveler.pendingTrips);
-});
+// tripEstimateButton.addEventListener('click', () => {
+//     domUpdates.displayEstimatedCostForTrip()
+// });
 
-tripEstimateButton.addEventListener('click', () => {
-    domUpdates.displayEstimatedCostForTrip()
-});
+// submitTripButton.addEventListener('click', requestNewTrip);
 
 const domUpdates = {
     welcomeUser: (name) => {
@@ -73,8 +78,44 @@ const domUpdates = {
 
     displayEstimatedCostForTrip: () => {
         console.log('hi')
-    }
+    },
+
+    findInputDestination: (allDestinationsData) => {
+        const inputDestinationDetails = allDestinationsData.find(destination => {
+            console.log(allDestinationsData)
+          return destination.destination === destinationList.value;
+        });
+        return inputDestinationDetails;
+      }
+
+
 }
+
+displayPastTrips.addEventListener('click', () => {
+    domUpdates.displayAllTrips(traveler.pastTrips)
+});
+
+displayUpcomingTrips.addEventListener('click', () => {
+    domUpdates.displayAllTrips(traveler.upcomingTrips)
+});
+
+displayPresentTrips.addEventListener('click', () => {
+    domUpdates.displayAllTrips(traveler.currentTrips);
+});
+
+displayPendingTrips.addEventListener('click', () => {
+    domUpdates.displayAllTrips(traveler.pendingTrips);
+});
+
+tripEstimateButton.addEventListener('click', () => {
+    domUpdates.displayEstimatedCostForTrip()
+});
+
+submitTripButton.addEventListener('click', () => {
+    requestNewTrip();
+});
+
+
 
 export default domUpdates;
 
