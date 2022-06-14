@@ -1,5 +1,6 @@
 import { traveler } from "./scripts";
 import { requestNewTrip } from "./scripts";
+
 const welcomeTraveler = document.getElementById('welcomeTraveler');
 const displayAllTrips = document.querySelector('.trips-container');
 const spentThisYear = document.querySelector('.total-cost');
@@ -15,35 +16,14 @@ const numberOfDays = document.getElementById('requestedDuration');
 const dateSelected = document.getElementById('requestedDate');
 
 
-
-// displayPastTrips.addEventListener('click', () => {
-//     domUpdates.displayAllTrips(traveler.pastTrips)
-// });
-
-// displayUpcomingTrips.addEventListener('click', () => {
-//     domUpdates.displayAllTrips(traveler.upcomingTrips)
-// });
-
-// displayPresentTrips.addEventListener('click', () => {
-//     domUpdates.displayAllTrips(traveler.currentTrips);
-// });
-
-// displayPendingTrips.addEventListener('click', () => {
-//     domUpdates.displayAllTrips(traveler.pendingTrips);
-// });
-
-// tripEstimateButton.addEventListener('click', () => {
-//     domUpdates.displayEstimatedCostForTrip()
-// });
-
-// submitTripButton.addEventListener('click', requestNewTrip);
-
 const domUpdates = {
     welcomeUser: (name) => {
         welcomeTraveler.innerText = `Welcome ${name}`
     },
 
     displayAllTrips: (array) => {
+        displayAllTrips.innerHTML = '';
+        console.log('array line 26',array)
         const getTrips = array.map(trip => {
             return (
                 `<div class='trip-container'>
@@ -63,7 +43,6 @@ const domUpdates = {
     },
 
     displaySpentThisYear: (spent) => {
-        console.log('SPENT',spent)
         spentThisYear.innerText = `$${spent}`
     },
 
@@ -82,7 +61,7 @@ const domUpdates = {
 
     findInputDestination: (allDestinationsData) => {
         const inputDestinationDetails = allDestinationsData.find(destination => {
-            console.log(allDestinationsData)
+            // console.log(allDestinationsData)
           return destination.destination === destinationList.value;
         });
         return inputDestinationDetails;
@@ -111,12 +90,13 @@ tripEstimateButton.addEventListener('click', () => {
     domUpdates.displayEstimatedCostForTrip()
 });
 
-submitTripButton.addEventListener('click', () => {
+submitTripButton.addEventListener('click', (event) => {
+    event.preventDefault()
     requestNewTrip();
 });
 
 
-
+export { numberOfTravelers, numberOfDays, dateSelected }
 export default domUpdates;
 
 // date, duration, number of travelers and choose from a list of destinations
