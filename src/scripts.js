@@ -1,17 +1,19 @@
 import './css/styles.css';
-import { fetchCalls } from './apiCalls.js'
+import { fetchCalls, postTrip } from './apiCalls.js'
 import domUpdates from './domUpdates'
 import './classes/Traveler.js';
 import './classes/Trip.js';
 import { Traveler } from './classes/Traveler.js';
 import { Trip } from './classes/Trip.js';
+import { numberOfTravelers, numberOfDays, dateSelected } from './domUpdates';
+
 const dayjs = require('dayjs');
 
 //----------Global Variables----------//
 let traveler;
 let allTripsData;
 let allDestinationsData;
-let travelerID = 28;
+let travelerID = 4;
 
 
 
@@ -35,7 +37,7 @@ const allFetchCalls = () => {
         traveler.findAllUpcomingTrips(allTripsData)
         traveler.findAllCurrentTrips(allTripsData)
         traveler.findAllPendingTrips(allTripsData)
-        console.log(traveler.travelersTrips) //all past, present, future stuff will be from here 
+        // console.log(traveler.travelersTrips) //all past, present, future stuff will be from here 
         domUpdates.welcomeUser(traveler.name);
         domUpdates.displayAllTrips(traveler.travelersTrips);
         domUpdates.displaySpentThisYear(traveler.findTotalAmountSpentInAYear());
@@ -46,7 +48,7 @@ const allFetchCalls = () => {
 
 const requestNewTrip = () => {
     const usersNewTrip = {
-        id: Number,
+        id: Date.now(),
         userID: traveler.id,
         destinationID: parseInt(domUpdates.findInputDestination(allDestinationsData).id),
         travelers: parseInt(numberOfTravelers.value), 
@@ -55,7 +57,18 @@ const requestNewTrip = () => {
         status: 'pending',
         suggestedActivities: []
     }
-    postTrip(usersNewTrip)
+    postTrip(usersNewTrip).then(data => {
+        allTripsData.push(data.newTrip)
+        traveler.travelersTrips = [];
+        traveler.findAllTravelerTrips(allTripsData, allDestinationsData)
+        traveler.findTotalAmountSpentInAYear()
+        // traveler.findAllPastTrips(allTripsData)
+        // traveler.findAllUpcomingTrips(allTripsData)
+        // traveler.findAllCurrentTrips(allTripsData)
+        traveler.pendingTrips = [];
+        traveler.findAllPendingTrips(allTripsData)
+        domUpdates.displayAllTrips(traveler.travelersTrips);
+    })
 }
 
 
