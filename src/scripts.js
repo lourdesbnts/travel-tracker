@@ -68,6 +68,8 @@ const requestNewTrip = () => {
         traveler.pendingTrips = [];
         traveler.findAllPendingTrips(allTripsData)
         domUpdates.displayAllTrips(traveler.travelersTrips);
+        // console.log(usersNewTrip)
+        // estimatedCost.innerText = `${usersNewTrip.calculateTripCost()}`
     })
 }
 
@@ -75,6 +77,6 @@ const requestNewTrip = () => {
 
 window.addEventListener('load', allFetchCalls)
 
-export { traveler, requestNewTrip }
+export { traveler, requestNewTrip, allTripsData, allDestinationsData}
 
 // {id: <number>, userID: <number>, destinationID: <number>, travelers: <number>, date: <string 'YYYY/MM/DD'>, duration: <number>, status: <string 'approved' or 'pending'>, suggestedActivities: <array of strings>}
