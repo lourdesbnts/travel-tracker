@@ -6,6 +6,12 @@ const displayPastTrips = document.querySelector('.past-button');
 const displayUpcomingTrips = document.querySelector('.upcoming-button');
 const displayPresentTrips = document.querySelector('.present-button');
 const displayPendingTrips = document.querySelector('.pending-button');
+const tripEstimateButton = document.querySelector('.estimate-cost-btn');
+const submitTripButton = document.querySelector('.submit-trip-btn');
+const destinationList = document.querySelector('.destination-list');
+
+
+
 
 displayPastTrips.addEventListener('click', () => {
     domUpdates.displayAllTrips(traveler.pastTrips)
@@ -21,6 +27,10 @@ displayPresentTrips.addEventListener('click', () => {
 
 displayPendingTrips.addEventListener('click', () => {
     domUpdates.displayAllTrips(traveler.pendingTrips);
+});
+
+tripEstimateButton.addEventListener('click', () => {
+    domUpdates.displayEstimatedCostForTrip()
 });
 
 const domUpdates = {
@@ -52,6 +62,18 @@ const domUpdates = {
         spentThisYear.innerText = `$${spent}`
     },
 
+    displayDestinationsInForm: (allDestinationsData) => {
+        const getDestinations = allDestinationsData.map(trip => {
+            return trip.destination
+        })
+        getDestinations.forEach(destination => {
+            destinationList.innerHTML += `<option value="${destination}">${destination}</option>`
+        })
+    },
+
+    displayEstimatedCostForTrip: () => {
+        console.log('hi')
+    }
 }
 
 export default domUpdates;

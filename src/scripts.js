@@ -38,13 +38,12 @@ const allFetchCalls = () => {
         domUpdates.welcomeUser(traveler.name);
         domUpdates.displayAllTrips(traveler.travelersTrips);
         domUpdates.displaySpentThisYear(traveler.findTotalAmountSpentInAYear());
-        
+        domUpdates.displayDestinationsInForm(allDestinationsData);
 
     })
-    // .catch(error => console.log(error))
-
 }
-// filterTrips(allTripsData, 5);
+
+
 
 
 window.addEventListener('load', allFetchCalls)
