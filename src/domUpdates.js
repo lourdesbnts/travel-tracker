@@ -27,7 +27,7 @@ const domUpdates = {
         const getTrips = array.map(trip => {
             return (
                 `<div class='trip-container'>
-                <img class='vacation-pictures' src=${trip.destination.image}/>
+                <img class='vacation-pictures' src=${trip.destination.image} alt=${trip.destination.alt}/>
                 <p>Destination: ${trip.destination.destination} </p>
                 <p>Date: ${trip.date} </p>
                 <p>Number of Travelers: ${trip.travelers} </p>
