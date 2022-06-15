@@ -33,31 +33,3 @@ nav {
   height: 300px;
   width: 400px;
 }
-
-.traveler-section {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row-reverse;
-}
-
-.total-cost {
-display: flex;
-justify-content: center;
-font-size: x-large;
-}
-
-/* .past-button,
-.present-button,
-.upcoming-button,
-.pending-button {
-  
-  /* justify-content:space-between; */
-  /* flex-direction: row; */
-
-/* } */ */
-.traveler-trips-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-

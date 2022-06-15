@@ -50,6 +50,7 @@
               <button class="estimate-cost-btn" type="button" name="button" id="estimateBtn">Trip Estimate</button>
               <p class="estimated-cost" id="estimatedCost"></p>
               <button class="submit-trip-btn" type="submit" id="submitTripRequest">Submit</button>
+              <p class="error2"></p>
             </div>
           </form>
         </section>
@@ -71,6 +72,17 @@
         <section class="trip-widget-section" id="tripWidgetSection">
         </section>
       </section>
+    </section>
+    <section class="log-in-section" id="logInSection">
+      <form class="log-in-form" id="logInForm">
+        <h2 class="log-in-title">Sign In</h2>
+        <label for="username">Username</label>
+        <input class ="log-in-input" id="username" type="text" name="username" value="" required>
+        <label for="password">Password</label>
+        <input class ="log-in-input" id="password" type="password" name="password" value="" required>
+        <button class="log-in-btn" type="button" name="button" id="logInBtn">Log In</button>
+        <p class="error"></p>
+      </form>
     </section>
   </main>
   <script src="bundle.js"></script>
