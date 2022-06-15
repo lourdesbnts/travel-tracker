@@ -5,6 +5,7 @@ import './classes/Trip.js';
 import { Traveler } from './classes/Traveler.js';
 import { Trip } from './classes/Trip.js';
 import { numberOfTravelers, numberOfDays, dateSelected } from './domUpdates';
+import domUpdates from './domUpdates'
 
 const dayjs = require('dayjs');
 
@@ -15,13 +16,10 @@ let allDestinationsData;
 let travelerID;
 
 
-import domUpdates from './domUpdates'
 
 const allFetchCalls = () => {
     const fetchTraveler = fetchCalls(`http://localhost:3001/api/v1/travelers/${travelerID}`);
-    console.log('this is my traveler',fetchTraveler)
     const fetchTrips = fetchCalls('http://localhost:3001/api/v1/trips');
-    console.log('this is my fetch trips',fetchTrips)
     const fetchDestinations = fetchCalls('http://localhost:3001/api/v1/destinations');
 
     Promise.all([fetchTraveler, fetchTrips, fetchDestinations])
@@ -29,8 +27,6 @@ const allFetchCalls = () => {
         traveler = new Traveler(data[0].id, data[0].name, data[0].travelerType);
         allTripsData = data[1].trips;
         allDestinationsData = data[2].destinations;
-        console.log(allDestinationsData)
-        console.log(allTripsData)
         traveler.findAllTravelerTrips(allTripsData, allDestinationsData)
         traveler.findTotalAmountSpentInAYear()
         traveler.findAllPastTrips(allTripsData)
@@ -44,8 +40,6 @@ const allFetchCalls = () => {
 
     })
 }
-
-const formError = document.querySelector('.error2');
 
 const requestNewTrip = () => {
     const usersNewTrip = {
@@ -61,15 +55,16 @@ const requestNewTrip = () => {
     postTrip(usersNewTrip).then(data => {
         allTripsData.push(data.newTrip)
         traveler.travelersTrips = [];
-        traveler.findAllTravelerTrips(allTripsData, allDestinationsData)
-        traveler.findTotalAmountSpentInAYear()
-        // traveler.findAllPastTrips(allTripsData)
+        traveler.findAllTravelerTrips(allTripsData, allDestinationsData);
+        traveler.findTotalAmountSpentInAYear();
         traveler.upcomingTrips = [];
-        traveler.findAllUpcomingTrips(allTripsData)
-        // traveler.findAllCurrentTrips(allTripsData)
+        traveler.findAllUpcomingTrips(allTripsData);
+        traveler.currentTrips = [];
+        traveler.findAllCurrentTrips(allTripsData);
         traveler.pendingTrips = [];
-        traveler.findAllPendingTrips(allTripsData)
+        traveler.findAllPendingTrips(allTripsData);
         domUpdates.displayAllTrips(traveler.travelersTrips);
+    })
 }
 
 const letsGoButton = document.getElementById('logInBtn');
@@ -97,4 +92,5 @@ const checkLogin = () => {
 
 letsGoButton.addEventListener('click', checkLogin);
 
-// {id: <number>, userID: <number>, destinationID: <number>, travelers: <number>, date: <string 'YYYY/MM/DD'>, duration: <number>, status: <string 'approved' or 'pending'>, suggestedActivities: <array of strings>}
+window.addEventListener('load', allFetchCalls)
+export { traveler, requestNewTrip, allTripsData, allDestinationsData}

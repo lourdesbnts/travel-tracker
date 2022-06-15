@@ -1,9 +1,5 @@
-
-import { traveler } from "./scripts";
-import { requestNewTrip, allTripsData, allDestinationsData } from "./scripts";
+import { requestNewTrip, allTripsData, allDestinationsData, traveler } from "./scripts";
 import { Trip } from "./classes/Trip";
-=======
-import { traveler, requestNewTrip } from "./scripts";
 
 
 const welcomeTraveler = document.getElementById('welcomeTraveler');
@@ -21,24 +17,6 @@ const numberOfDays = document.getElementById('requestedDuration');
 const dateSelected = document.getElementById('requestedDate');
 const estimatedCost = document.querySelector('.estimated-cost');
 
-
-
-// const checkLogin = () => {
-//     event.preventDefault()
-//     let username = logInInput.value;
-//     let password = passwordInput.value;
-//     let splitUsername = username.split(/(\d+)/);
-
-//     if(password === 'travel' && splitUsername[0] === 'traveler' && splitUsername[1] > 0 && splitUsername[1] < 51) {
-//         console.log(logInForm)
-//         logInForm.classList.add('hidden');
-//         userDashboard.classList.remove('hidden');
-
-//     } else {
-//         alert(`Invalid username and/or password`);
-//     }
-// }
-
 const domUpdates = {
     welcomeUser: (name) => {
         welcomeTraveler.innerText = `Welcome ${name}`
@@ -46,7 +24,6 @@ const domUpdates = {
 
     displayAllTrips: (array) => {
         displayAllTrips.innerHTML = '';
-        console.log('array line 26',array)
         const getTrips = array.map(trip => {
             return (
                 `<div class='trip-container'>
@@ -62,7 +39,6 @@ const domUpdates = {
                 )
             })
             displayAllTrips.innerHTML = `${getTrips.join('')}`
-        //    console.log(getTrips)
     },
 
     displaySpentThisYear: (spent) => {
@@ -95,7 +71,6 @@ const domUpdates = {
 
     findInputDestination: (allDestinationsData) => {
         const inputDestinationDetails = allDestinationsData.find(destination => {
-            // console.log(allDestinationsData)
           return destination.destination === destinationList.value;
         });
         return inputDestinationDetails;

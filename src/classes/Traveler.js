@@ -74,53 +74,5 @@ export class Traveler {
             totalCost += trip.calculateTripCost();
         })
        return totalCost;
-        // console.log(thisYearsTrips)
-               
-        // console.log(travelersTrips)
-        //wait should i just invoke calculateTripCost somehow to do all the math after i filter the users
-        //get travelersTrips.date and check if it includes thisYear
-        //then somehow use my calculateTripCost to calculate all of the trips that are === 2022
-        //but wait I def need to match destinationid to id in destinations so i can access the keys I need from there to do the math in the first place
-        
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-    // findTotalAmountSpentInAYear(tripData) {
-    //     const newYear = this.findFirst();
-    //     const lastOfYear = this.findLast()
-    //     const filterUsers = tripData
-    //     .filter(trip => trip.userID === this.id)
-    //     .filter(trip => trip.date > newYear)
-    //     // .filter(trip => trip.date < lastOfYear)
-    //     console.log(filterUsers)
-    // }
-
-    // findFirst() {
-    //     let first = [];
-    //     const todaysDate = dayjs().format('YYYY-MM-DD').split('-')[0]
-    //     first.push(todaysDate)
-    //     first.push('01')
-    //     first.push('01')
-    //     return first.join('-');
-    // }
-
-    // findLast() {
-    //     let last = [];
-    //     const todaysDate = dayjs().format('YYYY-MM-DD').split('-')[0]
-    //     last.push(todaysDate)
-    //     last.push('12')
-    //     last.push('31')
-    //     return last.join('-');
-    // }
-   
