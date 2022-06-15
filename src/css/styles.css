@@ -2,11 +2,27 @@
   border: solid red 2px;
 } */
 
+* {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 800;
+}
+
 body {
   height: 100%;
   padding-right: 40px;
   padding-left: 40px;
   background-color: #00afb9;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  height: 30%;
+}
+
+.travel-tracker-title {
+  font-weight: 800;
+  font-size:xx-large
 }
 
 .trip-container {
@@ -16,8 +32,4 @@ body {
 .vacation-pictures {
   height: 300px;
   width: 400px;
-}
-
-.hidden {
-  display: none;
 }

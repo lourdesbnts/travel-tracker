@@ -70,7 +70,6 @@ const requestNewTrip = () => {
         traveler.pendingTrips = [];
         traveler.findAllPendingTrips(allTripsData)
         domUpdates.displayAllTrips(traveler.travelersTrips);
-    }).catch(error => formError.innerText = `Please fill out all forms.`)
 }
 
 const letsGoButton = document.getElementById('logInBtn');
@@ -97,8 +96,5 @@ const checkLogin = () => {
 }
 
 letsGoButton.addEventListener('click', checkLogin);
-
-// window.addEventListener('load', allFetchCalls)
-export { traveler, requestNewTrip}
 
 // {id: <number>, userID: <number>, destinationID: <number>, travelers: <number>, date: <string 'YYYY/MM/DD'>, duration: <number>, status: <string 'approved' or 'pending'>, suggestedActivities: <array of strings>}

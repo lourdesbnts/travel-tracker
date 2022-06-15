@@ -1,4 +1,10 @@
+
+import { traveler } from "./scripts";
+import { requestNewTrip, allTripsData, allDestinationsData } from "./scripts";
+import { Trip } from "./classes/Trip";
+=======
 import { traveler, requestNewTrip } from "./scripts";
+
 
 const welcomeTraveler = document.getElementById('welcomeTraveler');
 const displayAllTrips = document.querySelector('.trips-container');
@@ -13,7 +19,7 @@ const destinationList = document.querySelector('.destination-list');
 const numberOfTravelers = document.getElementById('requestedNumTravelers');
 const numberOfDays = document.getElementById('requestedDuration');
 const dateSelected = document.getElementById('requestedDate');
-
+const estimatedCost = document.querySelector('.estimated-cost');
 
 
 
@@ -73,7 +79,18 @@ const domUpdates = {
     },
 
     displayEstimatedCostForTrip: () => {
-        console.log('hi')
+        let trip = new Trip(allTripsData, allDestinationsData);
+        let numOfDays = numberOfDays.value;
+        let numOfTravelers = numberOfTravelers.value;
+        let destinationOptions = destinationList.value;
+        let match = trip.destination.find((dest) => {
+            return dest.destination === destinationOptions
+        });
+        trip.destination = match;
+        trip.duration = numOfDays;
+        trip.travelers = numOfTravelers;
+        let estimatedCostRequest = trip.calculateTripCost();
+        estimatedCost.innerHTML = `$${estimatedCostRequest}`
     },
 
     findInputDestination: (allDestinationsData) => {
