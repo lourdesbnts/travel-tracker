@@ -1,6 +1,5 @@
 import './css/styles.css';
 import { fetchCalls, postTrip } from './apiCalls.js'
-import domUpdates from './domUpdates'
 import './classes/Traveler.js';
 import './classes/Trip.js';
 import { Traveler } from './classes/Traveler.js';
@@ -13,9 +12,10 @@ const dayjs = require('dayjs');
 let traveler;
 let allTripsData;
 let allDestinationsData;
-let travelerID = 4;
+let travelerID;
 
 
+import domUpdates from './domUpdates'
 
 const allFetchCalls = () => {
     const fetchTraveler = fetchCalls(`http://localhost:3001/api/v1/travelers/${travelerID}`);
@@ -37,7 +37,6 @@ const allFetchCalls = () => {
         traveler.findAllUpcomingTrips(allTripsData)
         traveler.findAllCurrentTrips(allTripsData)
         traveler.findAllPendingTrips(allTripsData)
-        // console.log(traveler.travelersTrips) //all past, present, future stuff will be from here 
         domUpdates.welcomeUser(traveler.name);
         domUpdates.displayAllTrips(traveler.travelersTrips);
         domUpdates.displaySpentThisYear(traveler.findTotalAmountSpentInAYear());
@@ -45,6 +44,8 @@ const allFetchCalls = () => {
 
     })
 }
+
+const formError = document.querySelector('.error2');
 
 const requestNewTrip = () => {
     const usersNewTrip = {
@@ -63,18 +64,41 @@ const requestNewTrip = () => {
         traveler.findAllTravelerTrips(allTripsData, allDestinationsData)
         traveler.findTotalAmountSpentInAYear()
         // traveler.findAllPastTrips(allTripsData)
-        // traveler.findAllUpcomingTrips(allTripsData)
+        traveler.upcomingTrips = [];
+        traveler.findAllUpcomingTrips(allTripsData)
         // traveler.findAllCurrentTrips(allTripsData)
         traveler.pendingTrips = [];
         traveler.findAllPendingTrips(allTripsData)
         domUpdates.displayAllTrips(traveler.travelersTrips);
-    })
+    }).catch(error => formError.innerText = `Please fill out all forms.`)
 }
 
+const letsGoButton = document.getElementById('logInBtn');
+const logInForm = document.getElementById('logInForm');
+const logInInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+const userDashboard = document.getElementById('userDashboard');
+const errorLogin = document.querySelector('.error');
 
+const checkLogin = () => {
+    event.preventDefault()
+    let username = logInInput.value;
+    let password = passwordInput.value;
+    let splitUsername = username.split(/(\d+)/);
 
-window.addEventListener('load', allFetchCalls)
+    if(password === 'travel' && splitUsername[0] === 'traveler' && splitUsername[1] > 0 && splitUsername[1] < 51) {
+        logInForm.classList.add('hidden');
+        userDashboard.classList.remove('hidden');
+        travelerID = splitUsername[1];
+        allFetchCalls();
+    } else {
+       errorLogin.innerHTML = `Username or password is incorrect.`
+    }
+}
 
-export { traveler, requestNewTrip }
+letsGoButton.addEventListener('click', checkLogin);
+
+// window.addEventListener('load', allFetchCalls)
+export { traveler, requestNewTrip}
 
 // {id: <number>, userID: <number>, destinationID: <number>, travelers: <number>, date: <string 'YYYY/MM/DD'>, duration: <number>, status: <string 'approved' or 'pending'>, suggestedActivities: <array of strings>}

@@ -18,7 +18,7 @@ export const postTrip = (usersNewTrip) => {
         } else {
             return response.json()
         }
-    })
+    }).catch(error => console.log(error))
 }
 
 
