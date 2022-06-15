@@ -7,8 +7,17 @@ body {
   height: 100%;
   padding-right: 40px;
   padding-left: 40px;
-  background-color: #00afb9;
-}
+  background: linear-gradient(90deg, #cc71c9, #3cc8a5, #79d9b0, #79cbd9);
+  background-size: 800% 800%;
+
+  animation: AnimationName 22s ease infinite; 
+  }
+@keyframes AnimationName {
+    0%{background-position:0% 53%}
+    50%{background-position:100% 48%}
+    100%{background-position:0% 53%}
+  }
+
 
 nav {
   display: flex;

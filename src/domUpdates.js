@@ -33,7 +33,7 @@ const domUpdates = {
                 <p>Number of Travelers: ${trip.travelers} </p>
                 <p>Duration: ${trip.duration}</p>
                 <p>Status: ${trip.status} </p>
-                <p>Lodging for Day: $${trip.destination.estimatedLodgingCostPerDay}</p>
+                <p>Lodging for per Day: $${trip.destination.estimatedLodgingCostPerDay}</p>
                 <p>Flight Cost per Person: $${trip.destination.estimatedFlightCostPerPerson}</p>
                 </div>`
                 )
