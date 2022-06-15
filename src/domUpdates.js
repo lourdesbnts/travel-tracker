@@ -1,5 +1,4 @@
-import { traveler } from "./scripts";
-import { requestNewTrip } from "./scripts";
+import { traveler, requestNewTrip } from "./scripts";
 
 const welcomeTraveler = document.getElementById('welcomeTraveler');
 const displayAllTrips = document.querySelector('.trips-container');
@@ -15,6 +14,24 @@ const numberOfTravelers = document.getElementById('requestedNumTravelers');
 const numberOfDays = document.getElementById('requestedDuration');
 const dateSelected = document.getElementById('requestedDate');
 
+
+
+
+// const checkLogin = () => {
+//     event.preventDefault()
+//     let username = logInInput.value;
+//     let password = passwordInput.value;
+//     let splitUsername = username.split(/(\d+)/);
+
+//     if(password === 'travel' && splitUsername[0] === 'traveler' && splitUsername[1] > 0 && splitUsername[1] < 51) {
+//         console.log(logInForm)
+//         logInForm.classList.add('hidden');
+//         userDashboard.classList.remove('hidden');
+
+//     } else {
+//         alert(`Invalid username and/or password`);
+//     }
+// }
 
 const domUpdates = {
     welcomeUser: (name) => {
@@ -66,9 +83,8 @@ const domUpdates = {
         });
         return inputDestinationDetails;
       }
-
-
 }
+    
 
 displayPastTrips.addEventListener('click', () => {
     domUpdates.displayAllTrips(traveler.pastTrips)
@@ -98,14 +114,3 @@ submitTripButton.addEventListener('click', (event) => {
 
 export { numberOfTravelers, numberOfDays, dateSelected }
 export default domUpdates;
-
-// date, duration, number of travelers and choose from a list of destinations
-
-// date: "2022/09/16"
-// destinationID: 49
-// duration: 8
-// id: 1
-// status: "approved"
-// suggestedActivities: []
-// travelers: 1
-// userID: 44
