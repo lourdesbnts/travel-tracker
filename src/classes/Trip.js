@@ -12,8 +12,6 @@ export class Trip {
     }
 
     calculateTripCost() {
-        console.log(this.duration)
-        console.log(this.travelers)
         const costPerDay =  this.duration * this.destination.estimatedLodgingCostPerDay
         const costPerTraveler = this.travelers * this.destination.estimatedFlightCostPerPerson
         return Math.round((costPerDay + costPerTraveler) * 1.1)
